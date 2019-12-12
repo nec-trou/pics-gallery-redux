@@ -1,7 +1,23 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
+import React from 'react'
+import { Provider } from 'react-redux'
+import GridList from './GridList'
+import ButtonReload from './ButtonReload'
+import ButtonShowMore from './ButtonShowMore'
 
-const App = () => <h1>GridList</h1>;
+import store from '../store/store'
 
-render(<App />, document.getElementById("root"));
+import '../styles/App.styl'
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div className="wrapper">
+        <GridList />
+        <ButtonReload />
+        <ButtonShowMore />
+      </div>
+    </Provider>
+  )
+}
+
+export default App
