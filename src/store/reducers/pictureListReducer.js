@@ -13,9 +13,8 @@ const pictureListReducer = (state = {}, action) => {
     case LOAD_MORE_PICTURES:
       return {
         ...state,
-        json: { ...state, json: action.json },
+        json: state.json.concat(action.json),
       }
-
     default:
       return state
   }

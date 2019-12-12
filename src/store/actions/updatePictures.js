@@ -12,6 +12,13 @@ export const receivePictures = json => ({
   type: RECEIVE_PICTURES,
   json,
 })
+
+export const loadMorePictures = json => {
+  return {
+    type: LOAD_MORE_PICTURES,
+    json,
+  }
+}
 export function fetchPictures() {
   return dispatch => {
     dispatch(requestPictures())
@@ -27,10 +34,8 @@ export function fetchPictures() {
   }
 }
 
-export const loadMorePictures = () => {
-  return (dispatch, getState) => {
-    const currentData = getState().json
-    dispatch(requestPictures())
+export const fetchMorePictures = () => {
+  return dispatch => {
     return fetch(SOURCE_URL)
       .then(
         response => response.json(),
@@ -38,7 +43,7 @@ export const loadMorePictures = () => {
           console.log('There is a problem with pictures source url. ', error)
       )
       .then(json => {
-        dispatch(receivePictures([...currentData, ...json]))
+        dispatch(loadMorePictures(json))
       })
   }
 }
