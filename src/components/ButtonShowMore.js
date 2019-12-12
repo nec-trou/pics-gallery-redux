@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchPictures } from '../store/actions/updatePictures'
+import { loadMorePictures } from '../store/actions/updatePictures'
 
 let ButtonShowMore = ({ getPictures }) => (
   <button
@@ -13,6 +13,6 @@ let ButtonShowMore = ({ getPictures }) => (
   </button>
 )
 const mapStateToProps = state => ({ channel: state.channel })
-const mapDispatchToProps = { getPictures: fetchPictures }
+const mapDispatchToProps = { getPictures: loadMorePictures }
 ButtonShowMore = connect(mapStateToProps, mapDispatchToProps)(ButtonShowMore)
 export default ButtonShowMore
