@@ -12,7 +12,7 @@ let ButtonShowMore = ({ getPictures }) => (
     Show more
   </button>
 )
-const mapStateToProps = state => ({ channel: state.channel })
+const mapStateToProps = state => ({ pictures: state.pictures })
 const mapDispatchToProps = { getPictures: loadMorePictures }
 ButtonShowMore = connect(mapStateToProps, mapDispatchToProps)(ButtonShowMore)
 export default ButtonShowMore

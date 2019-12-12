@@ -15,7 +15,7 @@ let ButtonReload = ({ getPictures }) => {
     </button>
   )
 }
-const mapStateToProps = state => ({ channel: state.channel })
+const mapStateToProps = state => ({ pictures: state.pictures })
 const mapDispatchToProps = { getPictures: fetchPictures }
 ButtonReload = connect(mapStateToProps, mapDispatchToProps)(ButtonReload)
 export default ButtonReload
